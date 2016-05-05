@@ -1,0 +1,12 @@
+# ignore all hidden files except gitignore
+.*
+!.gitignore
+
+# ignore ant build files
+/client/build
+
+# ignore c binaries
+/server/server
+/server/server.o
+/server/echoSK.o
+
