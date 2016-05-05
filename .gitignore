@@ -5,8 +5,13 @@
 # ignore ant build files
 /client/build
 
-# ignore c binaries
+# ignore generated files
 /server/server
 /server/server.o
 /server/echoSK.o
+/server/echoSK.cc
+
+/server/calculator.o
+/server/calculatorSK.cc
+/server/calculator.hh
 
