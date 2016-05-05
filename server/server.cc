@@ -14,10 +14,10 @@
 //               |
 //              test  [context] kind [my_context]
 //               |
-//              Echo  [object]  kind [Object]
+//              Calculate  [object]  kind [Object]
 //
 
-#include <echo.hh>
+#include <calculator.hh>
 
 #ifdef HAVE_STD
 #  include <iostream>
@@ -29,21 +29,37 @@
 static CORBA::Boolean bindObjectToName(CORBA::ORB_ptr, CORBA::Object_ptr);
 
 
-class Echo_i : public POA_helloworld::Echo
+class Calculation : public POA_calculator::Calculation
 {
 public:
-  inline Echo_i() {}
-  virtual ~Echo_i() {}
-  virtual char* echoString(const char* mesg);
+    inline Calculation() {}
+    virtual ~Calculation() {}
+    virtual double add(const double nr1, const double nr2);
+    virtual double subtract(const double nr1, const double nr2);
+    virtual double multiply(const double nr1, const double nr2);
+    virtual double divide(const double nr1, const double nr2);
 };
 
 
-char* Echo_i::echoString(const char* mesg)
-{
-  return CORBA::string_dup(mesg);
+double Calculation::divide(const double nr1, const double nr2) {
+    if(nr2 == 0) {
+        throw calculator::DivisionThroughZero("Division by zero is undefined");
+    }
+
+    return CORBA::Double (nr1 / nr2);
 }
 
-//////////////////////////////////////////////////////////////////////
+double Calculation::add(const double nr1, const double nr2) {
+    return CORBA::Double (nr1 + nr2);
+}
+
+double Calculation::subtract(const double nr1, const double nr2) {
+    return CORBA::Double (nr1 - nr2);
+}
+
+double Calculation::multiply(const double nr1, const double nr2) {
+    return CORBA::Double (nr1 * nr2);
+}
 
 int
 main(int argc, char **argv)
@@ -54,13 +70,13 @@ main(int argc, char **argv)
     CORBA::Object_var obj = orb->resolve_initial_references("RootPOA");
     PortableServer::POA_var poa = PortableServer::POA::_narrow(obj);
 
-    Echo_i* myecho = new Echo_i();
+    Calculation* calc = new Calculation();
 
-    PortableServer::ObjectId_var myechoid = poa->activate_object(myecho);
+    PortableServer::ObjectId_var myechoid = poa->activate_object(calc);
 
     // Obtain a reference to the object, and register it in
     // the naming service.
-    obj = myecho->_this();
+    obj = calc->_this();
 
     CORBA::String_var x;
     x = orb->object_to_string(obj);
@@ -69,7 +85,7 @@ main(int argc, char **argv)
     if( !bindObjectToName(orb, obj) )
       return 1;
 
-    myecho->_remove_ref();
+    calc->_remove_ref();
 
     PortableServer::POAManager_var pman = poa->the_POAManager();
     pman->activate();
@@ -151,10 +167,10 @@ bindObjectToName(CORBA::ORB_ptr orb, CORBA::Object_ptr objref)
       }
     }
 
-    // Bind objref with name Echo to the testContext:
+    // Bind objref with name Calculate to the testContext:
     CosNaming::Name objectName;
     objectName.length(1);
-    objectName[0].id   = (const char*) "Echo";   // string copied
+    objectName[0].id   = (const char*) "Calculation";   // string copied
     objectName[0].kind = (const char*) "Object"; // string copied
 
     try {
@@ -164,7 +180,7 @@ bindObjectToName(CORBA::ORB_ptr orb, CORBA::Object_ptr objref)
       testContext->rebind(objectName, objref);
     }
     // Note: Using rebind() will overwrite any Object previously bound
-    //       to /test/Echo with obj.
+    //       to /test/Calculate with obj.
     //       Alternatively, bind() can be used, which will raise a
     //       CosNaming::NamingContext::AlreadyBound exception if the name
     //       supplied is already bound to an object.

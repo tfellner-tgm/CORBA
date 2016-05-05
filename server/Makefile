@@ -1,24 +1,22 @@
 CXX            	= /usr/bin/g++
 CPPFLAGS      	= -g -c
 LDFLAGS       	= -g
-OMNI_HOME     	= /home/tfellner/opt/omniORB
-#OMNIIDL       	= $(OMNI_HOME)/bin/omniidl
-OMNIIDL       	= omniidl
+OMNIIDL 	= omniidl
 LIBS          	= -lomniORB4 -lomnithread -lomniDynamic4
-OBJECTS       	= echoSK.o server.o
+OBJECTS       	= calculatorSK.o server.o
 IDL_DIR		= ../idl
-IDL_FILE	= $(IDL_DIR)/echo.idl
+IDL_FILE	= $(IDL_DIR)/calculator.idl
 
 all server: $(OBJECTS)
-	$(CXX) $(LDFLAGS) -o server server.o echoSK.o $(LIBS)
+	$(CXX) $(LDFLAGS) -o server server.o calculatorSK.o $(LIBS)
 
 server.o: server.cc
 	$(CXX) $(CPPFLAGS) server.cc -I.
 
-echoSK.o: echoSK.cc echo.hh
-	$(CXX) $(CPPFLAGS) echoSK.cc -I.
+calculatorSK.o: idl
+	$(CXX) $(CPPFLAGS) calculatorSK.cc -I.
 
-echoSK.cc: $(IDL_FILE)
+idl: $(IDL_FILE)
 	$(OMNIIDL) -bcxx $(IDL_FILE)
 
 run: server

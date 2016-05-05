@@ -73,9 +73,9 @@
 
 			Sollte kein Host angegeben werden, so wird localhost als Host verwendet.
 		</description>
-		<java fork="true" classname="helloworld.Client">
+		<java fork="true" classname="calculator.Client">
 
-			<!-- Wuerde folgendem Aufruf entsprechen: java helloworld.Client -ORBInitRef NameService=corbaloc::127.0.0.1:2809/NameService -->
+			<!-- Wuerde folgendem Aufruf entsprechen: java calculator.Client -ORBInitRef NameService=corbaloc::127.0.0.1:2809/NameService -->
 			<arg value="-ORBInitRef" />
 			<arg value="NameService=corbaloc::${host}:2809/NameService" />
 			<classpath refid="project.classpath" />
