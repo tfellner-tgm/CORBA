@@ -9,6 +9,16 @@ Zu finden ist mein Beispiel auf Github unter \url{https://github.com/tfellner-tg
 
 CORBA erm\"oglicht einem, Objekte \"uber mehrere Prozesse und sogar durch das Netzwerk verwendbar zu machen. Im Gegensatz zu RMI ist dies aber Programmiersprachen unabh\"angig, doch das Prinzip ist sehr \"ahnlich.
 
+In dieser Graphik ist Erk\"ahrung wie das ganze funktioniert
+\begin{figure}[!h]
+        \begin{center}
+                \includegraphics[width=0.5\linewidth]{images/corba_design.png}
+                \caption{CORBA Erk\"ahrung \url{"http://www.pcmag.com/encyclopedia/term/40365/corba"}}
+        \end{center}
+\end{figure}
+
+\clearpage
+
 \subsection{Konfiguration und Installation}
 
 Hier ist erkl\"art wie man die 2 ORBs, JacORB f\"ur Java und OmniORB f\"ur C++ bzw. auch Python, aufsetzt.
@@ -267,3 +277,21 @@ public static void main(String[] args)  {
 }
 \end{lstlisting}
 
+\clearpage
+
+\section{Zeitaufzeichnung}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[!h]
+	\center
+	\begin{tabular}{ | {\hspace{3mm}} | {\hspace{3mm}} | {\hspace{3mm}} | {\hspace{3mm}} | }
+		\hline \textbf{Datum} & \textbf{Erwartete Dauer} & \textbf{Reale Dauer} & \textbf{Beschreibung}\\ \hline\hline
+		            29.4.2016 & 4 Stunden                & 4 Stunden            & Tutorial zum Laufen bringen fertigstellen\\ \hline
+                    4.5.2016 & 2 Stunden                 & 3 1/2 Stunden        & Hallo Welt umschreiben \\ \hline
+		            5.5.2016 & 3 Stunde                  & 2 Stunde             & Protokoll beginnen\\ \hline
+		            5.5.2016 & 2 Stunden                 & 3 Stunden            & Fertigstellung\\ \hline
+		            6.5.2016 & 2 Stunden                 & 3 Stunden            & Protokoll ferigstellen \\ \hline
+	\end{tabular}
+	\caption{Zeitaufzeichnung}
+	\label{methoden}
+\end{table}
