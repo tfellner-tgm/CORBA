@@ -13,5 +13,5 @@
 
 /server/calculator.o
 /server/calculatorSK.cc
+/server/calculatorSK.o
 /server/calculator.hh
-
