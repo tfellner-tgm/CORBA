@@ -19,7 +19,7 @@
 	<property name="idl.dir" value="../idl" />
 	<property name="gen.dir" value="${build.dir}/generated" />
 	<property name="resources.dir" value="resources" />
-	<property name="jacorb.dir" value="/home/tfellner/opt/jacorb" />
+	<property name="jacorb.dir" value="../lib/jacorb" />
 	<property name="tmp.dir" value="${build.dir}/tmp" />
 	<property name="host" value="127.0.0.1" />
 

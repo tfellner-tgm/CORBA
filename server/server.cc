@@ -43,7 +43,7 @@ public:
 
 double Calculation::divide(const double nr1, const double nr2) {
     if(nr2 == 0) {
-        throw calculator::DivisionThroughZero("Division by zero is undefined");
+        throw calculator::DivisionThroughZero("Division through zero is undefined");
     }
 
     return CORBA::Double (nr1 / nr2);
@@ -72,7 +72,7 @@ main(int argc, char **argv)
 
     Calculation* calc = new Calculation();
 
-    PortableServer::ObjectId_var myechoid = poa->activate_object(calc);
+    PortableServer::ObjectId_var calcid = poa->activate_object(calc);
 
     // Obtain a reference to the object, and register it in
     // the naming service.

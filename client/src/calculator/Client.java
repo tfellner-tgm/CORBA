@@ -17,20 +17,20 @@ public class Client {
 
 		//create Calculator Object
 		Calculation calculator = connectToRemote(args);
-		System.out.println("5 + 2 = " + calculator.add(5, 2));
-		System.out.println("2 - 3 = " + calculator.subtract(2, 3));
-		System.out.println("2 * 4.35 = " + calculator.multiply(2, 4.35));
+		System.out.println("5 + 2 = " + calculator.add(5.0, 2.0));
+		System.out.println("2 - 3 = " + calculator.subtract(2.0, 3.0));
+		System.out.println("2 * 4.35 = " + calculator.multiply(2.0, 4.35));
 		
 		try {
 			System.out.println("5.2 / 2.5 = " + calculator.divide(5.2, 2.5));
 			
-			//calculator.divide(16,0);
+			calculator.divide(16,0);
 		}catch(DivisionThroughZero e) {
 			System.err.println(e.message);
 		}    
 	}
 
-	public static Calc connectToRemote(String[] args) {
+	public static Calculation connectToRemote(String[] args) {
 		try {
 
 			/* Erstellen und intialisieren des ORB */
