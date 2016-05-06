@@ -1,0 +1,39 @@
+\begin{thebibliography}{1}
+
+\bibitem{Orbacus}
+Micro Focus.
+\newblock Orbacus.
+\newblock \url{https://www.microfocus.com/products/corba/orbacus/orbacus.aspx}.
+
+\bibitem{OmniORB}
+Duncan Grisby.
+\newblock Omniorb : Free corba orb.
+\newblock \url{http://omniorb.sourceforge.net/}, 28.09.2015.
+
+\bibitem{JacORB}
+Jacorb - the free java implementation of the omg's corba standard.
+\newblock \url{http://www.jacorb.org/}, 03.11.2015.
+
+\bibitem{OmniORB_guide}
+Duncan Grisby.
+\newblock The omniorb version 4.2 users’ guide.
+\newblock \url{http://omniorb.sourceforge.net/omni42/omniORB.pdf}, 11.03.2014.
+
+\bibitem{Orbacus_guide}
+Inc. IONA~Technologies.
+\newblock Corba/c++ programming with orbacus student workbook.
+\newblock url{http://www.ing.iac.es/~docs/external/corba/book.pdf },
+  11.03.2014.
+
+\bibitem{repo}
+Thomas Fellner.
+\newblock Github repository mit der aufgabe.
+\newblock \url{https://github.com/tfellner-tgm/CORBA}.
+
+\bibitem{halloWelt-bsp}
+Michal Borko.
+\newblock Corba hallo welt beispiel mit java und c++.
+\newblock
+  \url{https://github.com/mborko/code-examples/tree/master/corba/halloWelt}.
+
+\end{thebibliography}
